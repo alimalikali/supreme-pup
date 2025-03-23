@@ -1,0 +1,30 @@
+# Client (Next.js)
+client/node_modules/
+client/.next/
+client/out/
+client/build/
+client/.pnp
+client.pnp.*
+client/.yarn/
+client/coverage
+client/.DS_Store
+client/*.pem
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+client/.pnpm-debug.log*
+client/.env*
+client/.vercel
+client/*.tsbuildinfo
+client/next-env.d.ts
+
+# Server (Express)
+server/node_modules/
+server/build/
+server/.DS_Store
+server/*.pem
+server/npm-debug.log*
+server/yarn-debug.log*
+server/yarn-error.log*
+server/.pnpm-debug.log*
+server/.env*
