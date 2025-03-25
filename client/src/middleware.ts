@@ -3,8 +3,8 @@ import type { NextRequest } from "next/server";
 
 // Define route categories
 const authRoutes = ["/signup", "/login"]; // Routes for authentication
-const publicRoutes = ["/contacts", "/faq", "/error"]; // Open to all
-const protectedRoutes = ["/", "/cart", "/checkout", "/products/:id"]; // Require authentication
+const publicRoutes = ["/contacts", "/faq", "/error","/"]; // Open to all
+const protectedRoutes = [  "/checkout","/profile/:id"]; // Require authentication
 
 export function middleware(req: NextRequest) {
   // ✅ Get token from cookies
@@ -36,5 +36,5 @@ export function middleware(req: NextRequest) {
 
 // ✅ Apply middleware to all relevant routes
 export const config = {
-  matcher: ["/cart/:path*", "/checkout/:path*", "/products/:path*", "/", "/login", "/signup"],
+  matcher: ["/checkout/:path*", "/login", "/signup"],
 };
