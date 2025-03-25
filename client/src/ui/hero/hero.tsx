@@ -21,31 +21,23 @@ const defaultBanner = {
 
 export const Hero = ({ banner = defaultBanner }: HeroProps) => {
   return (
-    <section className="bg-accent flex flex-col items-center text-center justify-center py-20 sm:py-40 px-2 sm:px-6 min-h-screen w-full">
-      <Typography variant="h1" className="text-4xl md:text-5xl font-bold text-white max-w-3xl">
-        {banner.title}
-      </Typography>
+    <section className="bg-accent flex w-full flex-col items-center justify-center px-3 py-10 sm:px-12 sm:py-20 lg:px-20">
+      <div className="mx-auto flex min-h-screen w-full max-w-screen-2xl flex-col items-center justify-center text-center">
+        <Typography variant="h1" className="max-w-3xl text-4xl font-bold text-white md:text-5xl">
+          {banner.title}
+        </Typography>
 
-      <Typography variant="p" className="text-lg text-white max-w-2xl mt-4">
-        {banner.subtitle}
-      </Typography>
+        <Typography variant="p" className="mt-4 max-w-2xl text-lg text-white">
+          {banner.subtitle}
+        </Typography>
 
-      <Link
-        href="/products"
-        className="mt-6 px-6 py-3 bg-foreground text-white rounded-lg text-lg font-medium hover:bg-gray-900 transition"
-      >
-        Go to products
-      </Link>
+        <Link href="/products" className="bg-foreground mt-6 rounded-lg px-6 py-3 text-lg font-medium text-white transition hover:bg-gray-900">
+          Go to products
+        </Link>
 
-      <div className="mt-10 max-w-6xl w-full">
-        <Image
-          src={banner.imageUrl}
-          alt="Hero Image"
-          width={1200}
-          height={500}
-          className="rounded-3xl h-full md:h-[400px] object-cover"
-          priority
-        />
+        <div className="mt-10 w-full max-w-6xl">
+          <Image src={banner.imageUrl} alt="Hero Image" width={1200} height={500} className="h-full rounded-3xl object-cover md:h-[400px]" priority />
+        </div>
       </div>
     </section>
   );

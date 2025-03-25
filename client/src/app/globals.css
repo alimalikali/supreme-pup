@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --background: #f5f4f2;
   --foreground: #201a1c;
@@ -18,7 +29,6 @@
     --background: #f5f4f2;
     --foreground: #201a1c;
     --acccent: #79745e;
-
   }
 }
 
@@ -27,7 +37,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
-
 
 @utility embla {
   max-width: 100rem;
@@ -61,7 +70,6 @@ body {
 
 @layer utilities {
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-lg 
-           focus:outline-none focus:ring-2 focus:ring-accent bg-foreground text-white;
+    @apply focus:ring-accent bg-foreground w-full rounded-lg border border-gray-300 px-4 py-3 text-white focus:ring-2 focus:outline-none dark:border-gray-700;
   }
 }

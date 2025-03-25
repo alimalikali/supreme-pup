@@ -1,6 +1,5 @@
 import Footer from "@/components/footer";
 import GlobalLayout from "@/components/global-layout";
-import Navbar from "@/components/navbar";
 import { webBlocksDataset } from "@/constants/data";
 import { FeatureHighlight } from "@/ui/feature-highlight/feature-highlight";
 import Hero from "@/ui/hero/hero";
@@ -10,16 +9,17 @@ import { ProductSlider } from "@/ui/product-slider/product-slider";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center w-full">
-       <Navbar navigation={webBlocksDataset.navigationData}/>
-       <Hero banner={webBlocksDataset.heroData} />
-      <GlobalLayout>
-      <FeatureHighlight features={webBlocksDataset.featureData} />
-        <ProductSlider productsDataset={webBlocksDataset.fakeProducts} />
-        <PictureGrid datasetGrid={webBlocksDataset.imageDataset} />
-      </GlobalLayout>
+    <>
+      <main className="flex min-h-screen w-full flex-col items-center">
+        <Hero banner={webBlocksDataset.heroData} />
+        <GlobalLayout>
+          <FeatureHighlight features={webBlocksDataset.featureData} />
+          <ProductSlider productsDataset={webBlocksDataset.fakeProducts} />
+          <PictureGrid datasetGrid={webBlocksDataset.imageDataset} />
+        </GlobalLayout>
         <Newsletter />
         <Footer />
-    </main>
+      </main>
+    </>
   );
 }

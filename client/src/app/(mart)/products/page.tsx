@@ -1,28 +1,28 @@
-import { fakeProducts } from '@/constants/data';
-import { Product } from '@/ui/product-slider/product';
-import React from 'react'
+import { fakeProducts } from "@/constants/data";
+import { Product } from "@/ui/product-slider/product";
 
 const Products = () => {
   return (
     <div className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">All Products</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {fakeProducts.map((item , index) => (
+      <h1 className="mb-6 text-3xl font-bold">All Products</h1>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {fakeProducts.map((item, index) =>
           !!item ? (
             <Product
               key={index}
               product={{
+                id: item.id,
                 name: item.name,
                 path: item.path,
                 variants: null,
-                defaultVariant: {
-                  firstImage: item.defaultVariant.firstImage,
-                  defaultPrice: item.defaultVariant.defaultPrice,
+                Variant: {
+                  firstImage: item.Variant.firstImage,
+                  price: item.Variant.price,
                 },
               }}
             />
-          ) : null
-        ))}
+          ) : null,
+        )}
       </div>
     </div>
   );

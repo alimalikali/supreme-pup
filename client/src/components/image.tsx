@@ -14,18 +14,7 @@ type ImageProps = {
   sizes?: string;
 };
 
-export default function CustomImage({
-  src,
-  alt = "Image",
-  className,
-  width,
-  height,
-  layout = "intrinsic",
-  focalPoint,
-  preserveRatio = false,
-  loading = "lazy",
-  sizes = "(max-width: 640px) 500w, 768w",
-}: ImageProps) {
+export default function CustomImage({ src, alt = "Image", className, width, height, layout = "intrinsic", focalPoint, preserveRatio = false, loading = "lazy", sizes = "(max-width: 640px) 500w, 768w" }: ImageProps) {
   const styles = {
     "--focus-x": focalPoint?.x,
     "--focus-y": focalPoint?.y,
@@ -35,16 +24,7 @@ export default function CustomImage({
 
   return (
     <div className={clsx("relative", className)} style={styles}>
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        layout={layout}
-        loading={loading}
-        sizes={sizes}
-        style={styles} 
-      />
+      <Image src={src} alt={alt} width={width} height={height} layout={layout} loading={loading} sizes={sizes} style={styles} />
     </div>
   );
 }

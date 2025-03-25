@@ -1,756 +1,715 @@
 import { Truck, ShieldCheck, ShoppingCart } from "lucide-react";
 
 export const webBlocksDataset = {
-    featureData: [
-        {
-            headline: "Secure Payments",
-            description: "We ensure safe and encrypted transactions for your security.",
-            icon: ShieldCheck,
-        },
-        {
-            headline: "Fast Delivery",
-            description: "Get your orders delivered within 24-48 hours anywhere.",
-            icon: Truck,
-        },
-        {
-            headline: "Exclusive Discounts",
-            description: "Enjoy special offers and discounts on top brands.",
-            icon: ShoppingCart,
-        }],
-    heroData: {
-        title: "Discover Unbeatable Deals!",
-        subtitle: "Shop the latest trends, exclusive collections, and must-have essentials—all in one place.",
-        imageUrl: "/assets/images/image4.jpg",
+  featureData: [
+    {
+      headline: "Secure Payments",
+      description: "We ensure safe and encrypted transactions for your security.",
+      icon: ShieldCheck,
     },
-    imageDataset: {
-        heading: "Discover the Finest Selections for Every Lifestyle",
-        description: "From daily essentials to exclusive finds, we bring you quality, affordability, and convenience—all in one place. Shop smarter, live better!",
-        imageGrid: [
-            { src: "/assets/images/image11.jpg", alt: "Modern lifestyle essentials" },
-            { src: "/assets/images/image12.jpg", alt: "Exclusive high-end products" },
-            { src: "/assets/images/image10.jpg", alt: "Curated collections for you" },
-            { src: "/assets/images/image9.jpg", alt: "Best deals of the season" },
-            { src: "/assets/images/image8.jpg", alt: "Top-rated products and reviews" },
+    {
+      headline: "Fast Delivery",
+      description: "Get your orders delivered within 24-48 hours anywhere.",
+      icon: Truck,
+    },
+    {
+      headline: "Exclusive Discounts",
+      description: "Enjoy special offers and discounts on top brands.",
+      icon: ShoppingCart,
+    },
+  ],
+  heroData: {
+    title: "Discover Unbeatable Deals!",
+    subtitle: "Shop the latest trends, exclusive collections, and must-have essentials—all in one place.",
+    imageUrl: "/assets/images/image4.jpg",
+  },
+  imageDataset: {
+    heading: "Discover the Finest Selections for Every Lifestyle",
+    description: "From daily essentials to exclusive finds, we bring you quality, affordability, and convenience—all in one place. Shop smarter, live better!",
+    imageGrid: [
+      { src: "/assets/images/image11.jpg", alt: "Modern lifestyle essentials" },
+      { src: "/assets/images/image12.jpg", alt: "Exclusive high-end products" },
+      { src: "/assets/images/image10.jpg", alt: "Curated collections for you" },
+      { src: "/assets/images/image9.jpg", alt: "Best deals of the season" },
+      { src: "/assets/images/image8.jpg", alt: "Top-rated products and reviews" },
+    ],
+  },
+  fakeProducts: {
+    heading: "Your Ultimate Destination for Smart Shopping",
+    description: "From daily essentials to exclusive finds, we bring you quality, affordability, and convenience—all in one place. Shop smarter, live better!",
+    products: [
+      {
+        id: "P1",
+        name: "Wireless Heater",
+        path: "/wireless-heater",
+        description: "High-quality wireless headphones with noise cancellation and deep bass.",
+        brand: "AudioTech",
+        category: "Electronics",
+        tags: ["wireless", "noise-canceling", "premium"],
+        Variant: {
+          sku: "P1-DEFAULT",
+          firstImage: { url: "/assets/images/image1.jpg" },
+          price: { price: 199.99, currency: "EUR" },
+          stock: 50,
+          color: "Black",
+          size: "One Size",
+        },
+        variants: [
+          {
+            sku: "P1V1",
+            firstImage: { url: "/assets/images/image2.jpg" },
+            price: { price: 189.99, currency: "EUR" },
+            stock: 30,
+            color: "White",
+            size: "One Size",
+          },
+          {
+            sku: "P1V2",
+            firstImage: { url: "/assets/images/image3.jpg" },
+            price: { price: 209.99, currency: "EUR" },
+            stock: 20,
+            color: "Blue",
+            size: "One Size",
+          },
         ],
-    },
-    fakeProducts: {
-        heading: "Your Ultimate Destination for Smart Shopping",
-        description: "From daily essentials to exclusive finds, we bring you quality, affordability, and convenience—all in one place. Shop smarter, live better!",
-        products: [
-            {
-                "id": "P1",
-                "name": "Wireless Headphones",
-                "path": "/wireless-headphones",
-                "description": "High-quality wireless headphones with noise cancellation and deep bass.",
-                "brand": "AudioTech",
-                "category": "Electronics",
-                "tags": ["wireless", "noise-canceling", "premium"],
-                "defaultVariant": {
-                    "sku": "P1-DEFAULT",
-                    "firstImage": { "url": "/assets/images/image1.jpg" },
-                    "defaultPrice": { "price": 199.99, "currency": "EUR" },
-                    "stock": 50,
-                    "color": "Black",
-                    "size": "One Size"
-                },
-                "variants": [
-                    {
-                        "sku": "P1V1",
-                        "firstImage": { "url": "/assets/images/image2.jpg" },
-                        "price": { "price": 189.99, "currency": "EUR" },
-                        "stock": 30,
-                        "color": "White",
-                        "size": "One Size"
-                    },
-                    {
-                        "sku": "P1V2",
-                        "firstImage": { "url": "/assets/images/image3.jpg" },
-                        "price": { "price": 209.99, "currency": "EUR" },
-                        "stock": 20,
-                        "color": "Blue",
-                        "size": "One Size"
-                    }
-                ],
-                "images": [
-                    { "url": "/assets/images/image1.jpg" },
-                    { "url": "/assets/images/image2.jpg" },
-                    { "url": "/assets/images/image3.jpg" }
-                ],
-                "priceRange": { "min": 189.99, "max": 209.99, "currency": "EUR" },
-                "stockStatus": "In Stock",
-                "sku": "P1",
-                "weight": 0.5,
-                "dimensions": { "height": 18, "width": 15, "depth": 8 },
-                "shippingCost": 5.99,
-                "averageRating": 4.7,
-                "reviews": [
-                    {
-                        "user": "JohnDoe123",
-                        "rating": 5,
-                        "comment": "Amazing sound quality! Worth every penny.",
-                        "date": "2024-03-10"
-                    },
-                    {
-                        "user": "JaneDoe99",
-                        "rating": 4,
-                        "comment": "Great product but a bit pricey.",
-                        "date": "2024-03-08"
-                    }
-                ],
-                "warranty": "1 Year Manufacturer Warranty",
-                "returnPolicy": "30-day returns with full refund",
-                "isFeatured": true,
-                "createdAt": "2024-03-01"
-            },
-            {
-                "id": "P2",
-                "name": "Smartphone X Pro",
-                "path": "/smartphone-x-pro",
-                "description": "A flagship smartphone with a stunning OLED display and pro-grade cameras.",
-                "brand": "TechNova",
-                "category": "Mobile Phones",
-                "tags": ["smartphone", "OLED", "flagship"],
-                "defaultVariant": {
-                    "sku": "P2-DEFAULT",
-                    "firstImage": { "url": "/assets/images/image4.jpg" },
-                    "defaultPrice": { "price": 999.99, "currency": "EUR" },
-                    "stock": 85,
-                    "color": "Graphite",
-                    "size": "128GB"
-                },
-                "variants": [
-                    {
-                        "sku": "P2V1",
-                        "firstImage": { "url": "/assets/images/image5.jpg" },
-                        "price": { "price": 1099.99, "currency": "EUR" },
-                        "stock": 40,
-                        "color": "Silver",
-                        "size": "256GB"
-                    },
-                    {
-                        "sku": "P2V2",
-                        "firstImage": { "url": "/assets/images/image6.jpg" },
-                        "price": { "price": 1199.99, "currency": "EUR" },
-                        "stock": 30,
-                        "color": "Gold",
-                        "size": "512GB"
-                    }
-                ],
-                "images": [
-                    { "url": "/assets/images/image4.jpg" },
-                    { "url": "/assets/images/image5.jpg" },
-                    { "url": "/assets/images/image6.jpg" }
-                ],
-                "priceRange": { "min": 999.99, "max": 1199.99, "currency": "EUR" },
-                "stockStatus": "In Stock",
-                "sku": "P2",
-                "weight": 0.2,
-                "dimensions": { "height": 15, "width": 7, "depth": 0.8 },
-                "shippingCost": 9.99,
-                "averageRating": 4.8,
-                "reviews": [
-                    {
-                        "user": "AlexTech",
-                        "rating": 5,
-                        "comment": "Best smartphone on the market!",
-                        "date": "2024-03-12"
-                    },
-                    {
-                        "user": "LisaM",
-                        "rating": 4.5,
-                        "comment": "Super fast, great camera, battery could be better.",
-                        "date": "2024-03-09"
-                    }
-                ],
-                "warranty": "2 Year Manufacturer Warranty",
-                "returnPolicy": "30-day returns with full refund",
-                "isFeatured": true,
-                "createdAt": "2024-03-05"
-            },
-            {
-                "id": "P3",
-                "name": "Wireless Headphones",
-                "path": "/wireless-headphones",
-                "description": "High-quality wireless headphones with noise cancellation and deep bass.",
-                "brand": "AudioTech",
-                "category": "Electronics",
-                "tags": ["wireless", "noise-canceling", "premium"],
-                "defaultVariant": {
-                    "sku": "P1-DEFAULT",
-                    "firstImage": { "url": "/assets/images/image1.jpg" },
-                    "defaultPrice": { "price": 199.99, "currency": "EUR" },
-                    "stock": 50,
-                    "color": "Black",
-                    "size": "One Size"
-                },
-                "variants": [
-                    {
-                        "sku": "P1V1",
-                        "firstImage": { "url": "/assets/images/image2.jpg" },
-                        "price": { "price": 189.99, "currency": "EUR" },
-                        "stock": 30,
-                        "color": "White",
-                        "size": "One Size"
-                    },
-                    {
-                        "sku": "P1V2",
-                        "firstImage": { "url": "/assets/images/image3.jpg" },
-                        "price": { "price": 209.99, "currency": "EUR" },
-                        "stock": 20,
-                        "color": "Blue",
-                        "size": "One Size"
-                    }
-                ],
-                "images": [
-                    { "url": "/assets/images/image1.jpg" },
-                    { "url": "/assets/images/image2.jpg" },
-                    { "url": "/assets/images/image3.jpg" }
-                ],
-                "priceRange": { "min": 189.99, "max": 209.99, "currency": "EUR" },
-                "stockStatus": "In Stock",
-                "sku": "P1",
-                "weight": 0.5,
-                "dimensions": { "height": 18, "width": 15, "depth": 8 },
-                "shippingCost": 5.99,
-                "averageRating": 4.7,
-                "reviews": [
-                    {
-                        "user": "JohnDoe123",
-                        "rating": 5,
-                        "comment": "Amazing sound quality! Worth every penny.",
-                        "date": "2024-03-10"
-                    },
-                    {
-                        "user": "JaneDoe99",
-                        "rating": 4,
-                        "comment": "Great product but a bit pricey.",
-                        "date": "2024-03-08"
-                    }
-                ],
-                "warranty": "1 Year Manufacturer Warranty",
-                "returnPolicy": "30-day returns with full refund",
-                "isFeatured": true,
-                "createdAt": "2024-03-01"
-            },
-            {
-                "id": "P4",
-                "name": "Wireless Headphones",
-                "path": "/wireless-headphones",
-                "description": "High-quality wireless headphones with noise cancellation and deep bass.",
-                "brand": "AudioTech",
-                "category": "Electronics",
-                "tags": ["wireless", "noise-canceling", "premium"],
-                "defaultVariant": {
-                    "sku": "P1-DEFAULT",
-                    "firstImage": { "url": "/assets/images/image1.jpg" },
-                    "defaultPrice": { "price": 199.99, "currency": "EUR" },
-                    "stock": 50,
-                    "color": "Black",
-                    "size": "One Size"
-                },
-                "variants": [
-                    {
-                        "sku": "P1V1",
-                        "firstImage": { "url": "/assets/images/image2.jpg" },
-                        "price": { "price": 189.99, "currency": "EUR" },
-                        "stock": 30,
-                        "color": "White",
-                        "size": "One Size"
-                    },
-                    {
-                        "sku": "P1V2",
-                        "firstImage": { "url": "/assets/images/image3.jpg" },
-                        "price": { "price": 209.99, "currency": "EUR" },
-                        "stock": 20,
-                        "color": "Blue",
-                        "size": "One Size"
-                    }
-                ],
-                "images": [
-                    { "url": "/assets/images/image1.jpg" },
-                    { "url": "/assets/images/image2.jpg" },
-                    { "url": "/assets/images/image3.jpg" }
-                ],
-                "priceRange": { "min": 189.99, "max": 209.99, "currency": "EUR" },
-                "stockStatus": "In Stock",
-                "sku": "P1",
-                "weight": 0.5,
-                "dimensions": { "height": 18, "width": 15, "depth": 8 },
-                "shippingCost": 5.99,
-                "averageRating": 4.7,
-                "reviews": [
-                    {
-                        "user": "JohnDoe123",
-                        "rating": 5,
-                        "comment": "Amazing sound quality! Worth every penny.",
-                        "date": "2024-03-10"
-                    },
-                    {
-                        "user": "JaneDoe99",
-                        "rating": 4,
-                        "comment": "Great product but a bit pricey.",
-                        "date": "2024-03-08"
-                    }
-                ],
-                "warranty": "1 Year Manufacturer Warranty",
-                "returnPolicy": "30-day returns with full refund",
-                "isFeatured": true,
-                "createdAt": "2024-03-01"
-            },
-            {
-                "id": "P5",
-                "name": "Wireless Headphones",
-                "path": "/wireless-headphones",
-                "description": "High-quality wireless headphones with noise cancellation and deep bass.",
-                "brand": "AudioTech",
-                "category": "Electronics",
-                "tags": ["wireless", "noise-canceling", "premium"],
-                "defaultVariant": {
-                    "sku": "P1-DEFAULT",
-                    "firstImage": { "url": "/assets/images/image1.jpg" },
-                    "defaultPrice": { "price": 199.99, "currency": "EUR" },
-                    "stock": 50,
-                    "color": "Black",
-                    "size": "One Size"
-                },
-                "variants": [
-                    {
-                        "sku": "P1V1",
-                        "firstImage": { "url": "/assets/images/image2.jpg" },
-                        "price": { "price": 189.99, "currency": "EUR" },
-                        "stock": 30,
-                        "color": "White",
-                        "size": "One Size"
-                    },
-                    {
-                        "sku": "P1V2",
-                        "firstImage": { "url": "/assets/images/image3.jpg" },
-                        "price": { "price": 209.99, "currency": "EUR" },
-                        "stock": 20,
-                        "color": "Blue",
-                        "size": "One Size"
-                    }
-                ],
-                "images": [
-                    { "url": "/assets/images/image1.jpg" },
-                    { "url": "/assets/images/image2.jpg" },
-                    { "url": "/assets/images/image3.jpg" }
-                ],
-                "priceRange": { "min": 189.99, "max": 209.99, "currency": "EUR" },
-                "stockStatus": "In Stock",
-                "sku": "P1",
-                "weight": 0.5,
-                "dimensions": { "height": 18, "width": 15, "depth": 8 },
-                "shippingCost": 5.99,
-                "averageRating": 4.7,
-                "reviews": [
-                    {
-                        "user": "JohnDoe123",
-                        "rating": 5,
-                        "comment": "Amazing sound quality! Worth every penny.",
-                        "date": "2024-03-10"
-                    },
-                    {
-                        "user": "JaneDoe99",
-                        "rating": 4,
-                        "comment": "Great product but a bit pricey.",
-                        "date": "2024-03-08"
-                    }
-                ],
-                "warranty": "1 Year Manufacturer Warranty",
-                "returnPolicy": "30-day returns with full refund",
-                "isFeatured": true,
-                "createdAt": "2024-03-01"
-            },
-        ]
-    },
-    navigationData: {
-        logo: {
-            text: "🖤 PUP",
-            href: "/",
-        },
-        menuItems: [
-            { name: "Products", href: "/products", hasDropdown: false },
-            { name: "FAQ", href: "#" },
-            { name: "Shipping", href: "#" },
-            { name: "Contacts", href: "/contacts" },
+        images: [{ url: "/assets/images/image1.jpg" }, { url: "/assets/images/image2.jpg" }, { url: "/assets/images/image3.jpg" }],
+        priceRange: { min: 189.99, max: 209.99, currency: "EUR" },
+        stockStatus: "In Stock",
+        sku: "P1",
+        weight: 0.5,
+        dimensions: { height: 18, width: 15, depth: 8 },
+        shippingCost: 5.99,
+        averageRating: 4.7,
+        reviews: [
+          {
+            user: "JohnDoe123",
+            rating: 5,
+            comment: "Amazing sound quality! Worth every penny.",
+            date: "2024-03-10",
+          },
+          {
+            user: "JaneDoe99",
+            rating: 4,
+            comment: "Great product but a bit pricey.",
+            date: "2024-03-08",
+          },
         ],
-        icons: {
-            heart: {
-                icon: "HeartIcon",
-                href: "#",
-            },
-            cart: {
-                icon: "ShoppingCart",
-                href: "/cart",
-                cartCount: 0, // Dynamically update based on state
-            },
+        warranty: "1 Year Manufacturer Warranty",
+        returnPolicy: "30-day returns with full refund",
+        isFeatured: true,
+        createdAt: "2024-03-01",
+      },
+      {
+        id: "P2",
+        name: "Smartphone X Pro",
+        path: "/smartphone-x-pro",
+        description: "A flagship smartphone with a stunning OLED display and pro-grade cameras.",
+        brand: "TechNova",
+        category: "Mobile Phones",
+        tags: ["smartphone", "OLED", "flagship"],
+        Variant: {
+          sku: "P2-DEFAULT",
+          firstImage: { url: "/assets/images/image4.jpg" },
+          price: { price: 999.99, currency: "EUR" },
+          stock: 85,
+          color: "Graphite",
+          size: "128GB",
         },
-    }
+        variants: [
+          {
+            sku: "P2V1",
+            firstImage: { url: "/assets/images/image5.jpg" },
+            price: { price: 1099.99, currency: "EUR" },
+            stock: 40,
+            color: "Silver",
+            size: "256GB",
+          },
+          {
+            sku: "P2V2",
+            firstImage: { url: "/assets/images/image6.jpg" },
+            price: { price: 1199.99, currency: "EUR" },
+            stock: 30,
+            color: "Gold",
+            size: "512GB",
+          },
+        ],
+        images: [{ url: "/assets/images/image4.jpg" }, { url: "/assets/images/image5.jpg" }, { url: "/assets/images/image6.jpg" }],
+        priceRange: { min: 999.99, max: 1199.99, currency: "EUR" },
+        stockStatus: "In Stock",
+        sku: "P2",
+        weight: 0.2,
+        dimensions: { height: 15, width: 7, depth: 0.8 },
+        shippingCost: 9.99,
+        averageRating: 4.8,
+        reviews: [
+          {
+            user: "AlexTech",
+            rating: 5,
+            comment: "Best smartphone on the market!",
+            date: "2024-03-12",
+          },
+          {
+            user: "LisaM",
+            rating: 4.5,
+            comment: "Super fast, great camera, battery could be better.",
+            date: "2024-03-09",
+          },
+        ],
+        warranty: "2 Year Manufacturer Warranty",
+        returnPolicy: "30-day returns with full refund",
+        isFeatured: true,
+        createdAt: "2024-03-05",
+      },
+      {
+        id: "P3",
+        name: "Wireless Headphones",
+        path: "/wireless-headphones",
+        description: "High-quality wireless headphones with noise cancellation and deep bass.",
+        brand: "AudioTech",
+        category: "Electronics",
+        tags: ["wireless", "noise-canceling", "premium"],
+        Variant: {
+          sku: "P1-DEFAULT",
+          firstImage: { url: "/assets/images/image1.jpg" },
+          price: { price: 199.99, currency: "EUR" },
+          stock: 50,
+          color: "Black",
+          size: "One Size",
+        },
+        variants: [
+          {
+            sku: "P1V1",
+            firstImage: { url: "/assets/images/image2.jpg" },
+            price: { price: 189.99, currency: "EUR" },
+            stock: 30,
+            color: "White",
+            size: "One Size",
+          },
+          {
+            sku: "P1V2",
+            firstImage: { url: "/assets/images/image3.jpg" },
+            price: { price: 209.99, currency: "EUR" },
+            stock: 20,
+            color: "Blue",
+            size: "One Size",
+          },
+        ],
+        images: [{ url: "/assets/images/image1.jpg" }, { url: "/assets/images/image2.jpg" }, { url: "/assets/images/image3.jpg" }],
+        priceRange: { min: 189.99, max: 209.99, currency: "EUR" },
+        stockStatus: "In Stock",
+        sku: "P1",
+        weight: 0.5,
+        dimensions: { height: 18, width: 15, depth: 8 },
+        shippingCost: 5.99,
+        averageRating: 4.7,
+        reviews: [
+          {
+            user: "JohnDoe123",
+            rating: 5,
+            comment: "Amazing sound quality! Worth every penny.",
+            date: "2024-03-10",
+          },
+          {
+            user: "JaneDoe99",
+            rating: 4,
+            comment: "Great product but a bit pricey.",
+            date: "2024-03-08",
+          },
+        ],
+        warranty: "1 Year Manufacturer Warranty",
+        returnPolicy: "30-day returns with full refund",
+        isFeatured: true,
+        createdAt: "2024-03-01",
+      },
+      {
+        id: "P4",
+        name: "Wired Headphones",
+        path: "/wired-headphones",
+        description: "High-quality wireless headphones with noise cancellation and deep bass.",
+        brand: "AudioTech",
+        category: "Electronics",
+        tags: ["wireless", "noise-canceling", "premium"],
+        Variant: {
+          sku: "P1-DEFAULT",
+          firstImage: { url: "/assets/images/image1.jpg" },
+          price: { price: 199.99, currency: "EUR" },
+          stock: 50,
+          color: "Black",
+          size: "One Size",
+        },
+        variants: [
+          {
+            sku: "P1V1",
+            firstImage: { url: "/assets/images/image2.jpg" },
+            price: { price: 189.99, currency: "EUR" },
+            stock: 30,
+            color: "White",
+            size: "One Size",
+          },
+          {
+            sku: "P1V2",
+            firstImage: { url: "/assets/images/image3.jpg" },
+            price: { price: 209.99, currency: "EUR" },
+            stock: 20,
+            color: "Blue",
+            size: "One Size",
+          },
+        ],
+        images: [{ url: "/assets/images/image1.jpg" }, { url: "/assets/images/image2.jpg" }, { url: "/assets/images/image3.jpg" }],
+        priceRange: { min: 189.99, max: 209.99, currency: "EUR" },
+        stockStatus: "In Stock",
+        sku: "P1",
+        weight: 0.5,
+        dimensions: { height: 18, width: 15, depth: 8 },
+        shippingCost: 5.99,
+        averageRating: 4.7,
+        reviews: [
+          {
+            user: "JohnDoe123",
+            rating: 5,
+            comment: "Amazing sound quality! Worth every penny.",
+            date: "2024-03-10",
+          },
+          {
+            user: "JaneDoe99",
+            rating: 4,
+            comment: "Great product but a bit pricey.",
+            date: "2024-03-08",
+          },
+        ],
+        warranty: "1 Year Manufacturer Warranty",
+        returnPolicy: "30-day returns with full refund",
+        isFeatured: true,
+        createdAt: "2024-03-01",
+      },
+      {
+        id: "P5",
+        name: "Wireless Bluetooth",
+        path: "/wireless-bluetooth",
+        description: "High-quality wireless headphones with noise cancellation and deep bass.",
+        brand: "AudioTech",
+        category: "Electronics",
+        tags: ["wireless", "noise-canceling", "premium"],
+        Variant: {
+          sku: "P1-DEFAULT",
+          firstImage: { url: "/assets/images/image1.jpg" },
+          price: { price: 39.99, currency: "EUR" },
+          stock: 50,
+          color: "Black",
+          size: "One Size",
+        },
+        variants: [
+          {
+            sku: "P1V1",
+            firstImage: { url: "/assets/images/image2.jpg" },
+            price: { price: 189.99, currency: "EUR" },
+            stock: 30,
+            color: "White",
+            size: "One Size",
+          },
+          {
+            sku: "P1V2",
+            firstImage: { url: "/assets/images/image3.jpg" },
+            price: { price: 209.99, currency: "EUR" },
+            stock: 20,
+            color: "Blue",
+            size: "One Size",
+          },
+        ],
+        images: [{ url: "/assets/images/image1.jpg" }, { url: "/assets/images/image2.jpg" }, { url: "/assets/images/image3.jpg" }],
+        priceRange: { min: 189.99, max: 209.99, currency: "EUR" },
+        stockStatus: "In Stock",
+        sku: "P1",
+        weight: 0.5,
+        dimensions: { height: 18, width: 15, depth: 8 },
+        shippingCost: 5.99,
+        averageRating: 4.7,
+        reviews: [
+          {
+            user: "JohnDoe123",
+            rating: 5,
+            comment: "Amazing sound quality! Worth every penny.",
+            date: "2024-03-10",
+          },
+          {
+            user: "JaneDoe99",
+            rating: 4,
+            comment: "Great product but a bit pricey.",
+            date: "2024-03-08",
+          },
+        ],
+        warranty: "1 Year Manufacturer Warranty",
+        returnPolicy: "30-day returns with full refund",
+        isFeatured: true,
+        createdAt: "2024-03-01",
+      },
+    ],
+  },
+  navigationData: {
+    logo: {
+      text: "PUP Shop",
+      href: "/",
+    },
+    menuItems: [
+      { name: "Products", href: "/products", hasDropdown: false },
+      { name: "FAQ", href: "faq" },
+      // { name: "Shipping", href: "#" },
+      { name: "Contacts", href: "/contacts" },
+    ],
+    icons: {
+      heart: {
+        icon: "HeartIcon",
+        href: "#",
+      },
+      cart: {
+        icon: "ShoppingCart",
+        href: "/cart",
+        cartCount: 0, // Dynamically update based on state
+      },
+    },
+  },
 };
 
 export const fakeProducts = [
-    {
-        "id": "P1",
-        "name": "Wireless Headphones",
-        "path": "/wireless-headphones",
-        "description": "High-quality wireless headphones with noise cancellation and deep bass.",
-        "brand": "AudioTech",
-        "category": "Electronics",
-        "tags": ["wireless", "noise-canceling", "premium"],
-        "defaultVariant": {
-            "sku": "P1-DEFAULT",
-            "firstImage": { "url": "/assets/images/image1.jpg" },
-            "defaultPrice": { "price": 199.99, "currency": "EUR" },
-            "stock": 50,
-            "color": "Black",
-            "size": "One Size"
-        },
-        "variants": [
-            {
-                "sku": "P1V1",
-                "firstImage": { "url": "/assets/images/image2.jpg" },
-                "price": { "price": 189.99, "currency": "EUR" },
-                "stock": 30,
-                "color": "White",
-                "size": "One Size"
-            },
-            {
-                "sku": "P1V2",
-                "firstImage": { "url": "/assets/images/image3.jpg" },
-                "price": { "price": 209.99, "currency": "EUR" },
-                "stock": 20,
-                "color": "Blue",
-                "size": "One Size"
-            }
-        ],
-        "images": [
-            { "url": "/assets/images/image1.jpg" },
-            { "url": "/assets/images/image2.jpg" },
-            { "url": "/assets/images/image3.jpg" }
-        ],
-        "priceRange": { "min": 189.99, "max": 209.99, "currency": "EUR" },
-        "stockStatus": "In Stock",
-        "sku": "P1",
-        "weight": 0.5,
-        "dimensions": { "height": 18, "width": 15, "depth": 8 },
-        "shippingCost": 5.99,
-        "averageRating": 4.7,
-        "reviews": [
-            {
-                "user": "JohnDoe123",
-                "rating": 5,
-                "comment": "Amazing sound quality! Worth every penny.",
-                "date": "2024-03-10"
-            },
-            {
-                "user": "JaneDoe99",
-                "rating": 4,
-                "comment": "Great product but a bit pricey.",
-                "date": "2024-03-08"
-            }
-        ],
-        "warranty": "1 Year Manufacturer Warranty",
-        "returnPolicy": "30-day returns with full refund",
-        "isFeatured": true,
-        "createdAt": "2024-03-01"
+  {
+    id: "1",
+    name: "Wireless Heater",
+    path: "/wireless-heater",
+    description: "High-quality wireless headphones with noise cancellation and deep bass.",
+    brand: "AudioTech",
+    category: "Electronics",
+    tags: ["wireless", "noise-canceling", "premium"],
+    Variant: {
+      sku: "P1-DEFAULT",
+      firstImage: { url: "/assets/images/image1.jpg" },
+      price: { price: 199.99, currency: "EUR" },
+      stock: 50,
+      color: "Black",
+      size: "One Size",
     },
-    {
-        "id": "P2",
-        "name": "Smartphone X Pro",
-        "path": "/smartphone-x-pro",
-        "description": "A flagship smartphone with a stunning OLED display and pro-grade cameras.",
-        "brand": "TechNova",
-        "category": "Mobile Phones",
-        "tags": ["smartphone", "OLED", "flagship"],
-        "defaultVariant": {
-            "sku": "P2-DEFAULT",
-            "firstImage": { "url": "/assets/images/image4.jpg" },
-            "defaultPrice": { "price": 999.99, "currency": "EUR" },
-            "stock": 85,
-            "color": "Graphite",
-            "size": "128GB"
-        },
-        "variants": [
-            {
-                "sku": "P2V1",
-                "firstImage": { "url": "/assets/images/image5.jpg" },
-                "price": { "price": 1099.99, "currency": "EUR" },
-                "stock": 40,
-                "color": "Silver",
-                "size": "256GB"
-            },
-            {
-                "sku": "P2V2",
-                "firstImage": { "url": "/assets/images/image6.jpg" },
-                "price": { "price": 1199.99, "currency": "EUR" },
-                "stock": 30,
-                "color": "Gold",
-                "size": "512GB"
-            }
-        ],
-        "images": [
-            { "url": "/assets/images/image4.jpg" },
-            { "url": "/assets/images/image5.jpg" },
-            { "url": "/assets/images/image6.jpg" }
-        ],
-        "priceRange": { "min": 999.99, "max": 1199.99, "currency": "EUR" },
-        "stockStatus": "In Stock",
-        "sku": "P2",
-        "weight": 0.2,
-        "dimensions": { "height": 15, "width": 7, "depth": 0.8 },
-        "shippingCost": 9.99,
-        "averageRating": 4.8,
-        "reviews": [
-            {
-                "user": "AlexTech",
-                "rating": 5,
-                "comment": "Best smartphone on the market!",
-                "date": "2024-03-12"
-            },
-            {
-                "user": "LisaM",
-                "rating": 4.5,
-                "comment": "Super fast, great camera, battery could be better.",
-                "date": "2024-03-09"
-            }
-        ],
-        "warranty": "2 Year Manufacturer Warranty",
-        "returnPolicy": "30-day returns with full refund",
-        "isFeatured": true,
-        "createdAt": "2024-03-05"
+    variants: [
+      {
+        sku: "P1V1",
+        firstImage: { url: "/assets/images/image2.jpg" },
+        price: { price: 189.99, currency: "EUR" },
+        stock: 30,
+        color: "White",
+        size: "One Size",
+      },
+      {
+        sku: "P1V2",
+        firstImage: { url: "/assets/images/image3.jpg" },
+        price: { price: 209.99, currency: "EUR" },
+        stock: 20,
+        color: "Blue",
+        size: "One Size",
+      },
+    ],
+    images: [{ url: "/assets/images/image1.jpg" }, { url: "/assets/images/image2.jpg" }, { url: "/assets/images/image3.jpg" }],
+    priceRange: { min: 189.99, max: 209.99, currency: "EUR" },
+    stockStatus: "In Stock",
+    sku: "P1",
+    weight: 0.5,
+    dimensions: { height: 18, width: 15, depth: 8 },
+    shippingCost: 5.99,
+    averageRating: 4.7,
+    reviews: [
+      {
+        user: "JohnDoe123",
+        rating: 5,
+        comment: "Amazing sound quality! Worth every penny.",
+        date: "2024-03-10",
+      },
+      {
+        user: "JaneDoe99",
+        rating: 4,
+        comment: "Great product but a bit pricey.",
+        date: "2024-03-08",
+      },
+    ],
+    warranty: "1 Year Manufacturer Warranty",
+    returnPolicy: "30-day returns with full refund",
+    isFeatured: true,
+    createdAt: "2024-03-01",
+  },
+  {
+    id: "2",
+    name: "Smartphone X Pro",
+    path: "/smartphone-x-pro",
+    description: "A flagship smartphone with a stunning OLED display and pro-grade cameras.",
+    brand: "TechNova",
+    category: "Mobile Phones",
+    tags: ["smartphone", "OLED", "flagship"],
+    Variant: {
+      sku: "P2-DEFAULT",
+      firstImage: { url: "/assets/images/image4.jpg" },
+      price: { price: 999.99, currency: "EUR" },
+      stock: 85,
+      color: "Graphite",
+      size: "128GB",
     },
-    {
-        "id": "P3",
-        "name": "Wireless Headphones",
-        "path": "/wireless-headphones",
-        "description": "High-quality wireless headphones with noise cancellation and deep bass.",
-        "brand": "AudioTech",
-        "category": "Electronics",
-        "tags": ["wireless", "noise-canceling", "premium"],
-        "defaultVariant": {
-            "sku": "P1-DEFAULT",
-            "firstImage": { "url": "/assets/images/image1.jpg" },
-            "defaultPrice": { "price": 199.99, "currency": "EUR" },
-            "stock": 50,
-            "color": "Black",
-            "size": "One Size"
-        },
-        "variants": [
-            {
-                "sku": "P1V1",
-                "firstImage": { "url": "/assets/images/image2.jpg" },
-                "price": { "price": 189.99, "currency": "EUR" },
-                "stock": 30,
-                "color": "White",
-                "size": "One Size"
-            },
-            {
-                "sku": "P1V2",
-                "firstImage": { "url": "/assets/images/image3.jpg" },
-                "price": { "price": 209.99, "currency": "EUR" },
-                "stock": 20,
-                "color": "Blue",
-                "size": "One Size"
-            }
-        ],
-        "images": [
-            { "url": "/assets/images/image1.jpg" },
-            { "url": "/assets/images/image2.jpg" },
-            { "url": "/assets/images/image3.jpg" }
-        ],
-        "priceRange": { "min": 189.99, "max": 209.99, "currency": "EUR" },
-        "stockStatus": "In Stock",
-        "sku": "P1",
-        "weight": 0.5,
-        "dimensions": { "height": 18, "width": 15, "depth": 8 },
-        "shippingCost": 5.99,
-        "averageRating": 4.7,
-        "reviews": [
-            {
-                "user": "JohnDoe123",
-                "rating": 5,
-                "comment": "Amazing sound quality! Worth every penny.",
-                "date": "2024-03-10"
-            },
-            {
-                "user": "JaneDoe99",
-                "rating": 4,
-                "comment": "Great product but a bit pricey.",
-                "date": "2024-03-08"
-            }
-        ],
-        "warranty": "1 Year Manufacturer Warranty",
-        "returnPolicy": "30-day returns with full refund",
-        "isFeatured": true,
-        "createdAt": "2024-03-01"
+    variants: [
+      {
+        sku: "P2V1",
+        firstImage: { url: "/assets/images/image5.jpg" },
+        price: { price: 1099.99, currency: "EUR" },
+        stock: 40,
+        color: "Silver",
+        size: "256GB",
+      },
+      {
+        sku: "P2V2",
+        firstImage: { url: "/assets/images/image6.jpg" },
+        price: { price: 1199.99, currency: "EUR" },
+        stock: 30,
+        color: "Gold",
+        size: "512GB",
+      },
+    ],
+    images: [{ url: "/assets/images/image4.jpg" }, { url: "/assets/images/image5.jpg" }, { url: "/assets/images/image6.jpg" }],
+    priceRange: { min: 999.99, max: 1199.99, currency: "EUR" },
+    stockStatus: "In Stock",
+    sku: "P2",
+    weight: 0.2,
+    dimensions: { height: 15, width: 7, depth: 0.8 },
+    shippingCost: 9.99,
+    averageRating: 4.8,
+    reviews: [
+      {
+        user: "AlexTech",
+        rating: 5,
+        comment: "Best smartphone on the market!",
+        date: "2024-03-12",
+      },
+      {
+        user: "LisaM",
+        rating: 4.5,
+        comment: "Super fast, great camera, battery could be better.",
+        date: "2024-03-09",
+      },
+    ],
+    warranty: "2 Year Manufacturer Warranty",
+    returnPolicy: "30-day returns with full refund",
+    isFeatured: true,
+    createdAt: "2024-03-05",
+  },
+  {
+    id: "3",
+    name: "Wireless Headphones",
+    path: "/wireless-headphones",
+    description: "High-quality wireless headphones with noise cancellation and deep bass.",
+    brand: "AudioTech",
+    category: "Electronics",
+    tags: ["wireless", "noise-canceling", "premium"],
+    Variant: {
+      sku: "P1-DEFAULT",
+      firstImage: { url: "/assets/images/image1.jpg" },
+      price: { price: 199.99, currency: "EUR" },
+      stock: 50,
+      color: "Black",
+      size: "One Size",
     },
-    {
-        "id": "P4",
-        "name": "Wireless Headphones",
-        "path": "/wireless-headphones",
-        "description": "High-quality wireless headphones with noise cancellation and deep bass.",
-        "brand": "AudioTech",
-        "category": "Electronics",
-        "tags": ["wireless", "noise-canceling", "premium"],
-        "defaultVariant": {
-            "sku": "P1-DEFAULT",
-            "firstImage": { "url": "/assets/images/image1.jpg" },
-            "defaultPrice": { "price": 199.99, "currency": "EUR" },
-            "stock": 50,
-            "color": "Black",
-            "size": "One Size"
-        },
-        "variants": [
-            {
-                "sku": "P1V1",
-                "firstImage": { "url": "/assets/images/image2.jpg" },
-                "price": { "price": 189.99, "currency": "EUR" },
-                "stock": 30,
-                "color": "White",
-                "size": "One Size"
-            },
-            {
-                "sku": "P1V2",
-                "firstImage": { "url": "/assets/images/image3.jpg" },
-                "price": { "price": 209.99, "currency": "EUR" },
-                "stock": 20,
-                "color": "Blue",
-                "size": "One Size"
-            }
-        ],
-        "images": [
-            { "url": "/assets/images/image1.jpg" },
-            { "url": "/assets/images/image2.jpg" },
-            { "url": "/assets/images/image3.jpg" }
-        ],
-        "priceRange": { "min": 189.99, "max": 209.99, "currency": "EUR" },
-        "stockStatus": "In Stock",
-        "sku": "P1",
-        "weight": 0.5,
-        "dimensions": { "height": 18, "width": 15, "depth": 8 },
-        "shippingCost": 5.99,
-        "averageRating": 4.7,
-        "reviews": [
-            {
-                "user": "JohnDoe123",
-                "rating": 5,
-                "comment": "Amazing sound quality! Worth every penny.",
-                "date": "2024-03-10"
-            },
-            {
-                "user": "JaneDoe99",
-                "rating": 4,
-                "comment": "Great product but a bit pricey.",
-                "date": "2024-03-08"
-            }
-        ],
-        "warranty": "1 Year Manufacturer Warranty",
-        "returnPolicy": "30-day returns with full refund",
-        "isFeatured": true,
-        "createdAt": "2024-03-01"
+    variants: [
+      {
+        sku: "P1V1",
+        firstImage: { url: "/assets/images/image2.jpg" },
+        price: { price: 189.99, currency: "EUR" },
+        stock: 30,
+        color: "White",
+        size: "One Size",
+      },
+      {
+        sku: "P1V2",
+        firstImage: { url: "/assets/images/image3.jpg" },
+        price: { price: 209.99, currency: "EUR" },
+        stock: 20,
+        color: "Blue",
+        size: "One Size",
+      },
+    ],
+    images: [{ url: "/assets/images/image1.jpg" }, { url: "/assets/images/image2.jpg" }, { url: "/assets/images/image3.jpg" }],
+    priceRange: { min: 189.99, max: 209.99, currency: "EUR" },
+    stockStatus: "In Stock",
+    sku: "P1",
+    weight: 0.5,
+    dimensions: { height: 18, width: 15, depth: 8 },
+    shippingCost: 5.99,
+    averageRating: 4.7,
+    reviews: [
+      {
+        user: "JohnDoe123",
+        rating: 5,
+        comment: "Amazing sound quality! Worth every penny.",
+        date: "2024-03-10",
+      },
+      {
+        user: "JaneDoe99",
+        rating: 4,
+        comment: "Great product but a bit pricey.",
+        date: "2024-03-08",
+      },
+    ],
+    warranty: "1 Year Manufacturer Warranty",
+    returnPolicy: "30-day returns with full refund",
+    isFeatured: true,
+    createdAt: "2024-03-01",
+  },
+  {
+    id: "4",
+    name: "Wired Headphones",
+    path: "/wired-headphones",
+    description: "High-quality wireless headphones with noise cancellation and deep bass.",
+    brand: "AudioTech",
+    category: "Electronics",
+    tags: ["wireless", "noise-canceling", "premium"],
+    Variant: {
+      sku: "P1-DEFAULT",
+      firstImage: { url: "/assets/images/image1.jpg" },
+      price: { price: 199.99, currency: "EUR" },
+      stock: 50,
+      color: "Black",
+      size: "One Size",
     },
-    {
-        "id": "P5",
-        "name": "Wireless Headphones",
-        "path": "/wireless-headphones",
-        "description": "High-quality wireless headphones with noise cancellation and deep bass.",
-        "brand": "AudioTech",
-        "category": "Electronics",
-        "tags": ["wireless", "noise-canceling", "premium"],
-        "defaultVariant": {
-            "sku": "P1-DEFAULT",
-            "firstImage": { "url": "/assets/images/image1.jpg" },
-            "defaultPrice": { "price": 199.99, "currency": "EUR" },
-            "stock": 50,
-            "color": "Black",
-            "size": "One Size"
-        },
-        "variants": [
-            {
-                "sku": "P1V1",
-                "firstImage": { "url": "/assets/images/image2.jpg" },
-                "price": { "price": 189.99, "currency": "EUR" },
-                "stock": 30,
-                "color": "White",
-                "size": "One Size"
-            },
-            {
-                "sku": "P1V2",
-                "firstImage": { "url": "/assets/images/image3.jpg" },
-                "price": { "price": 209.99, "currency": "EUR" },
-                "stock": 20,
-                "color": "Blue",
-                "size": "One Size"
-            }
-        ],
-        "images": [
-            { "url": "/assets/images/image1.jpg" },
-            { "url": "/assets/images/image2.jpg" },
-            { "url": "/assets/images/image3.jpg" }
-        ],
-        "priceRange": { "min": 189.99, "max": 209.99, "currency": "EUR" },
-        "stockStatus": "In Stock",
-        "sku": "P1",
-        "weight": 0.5,
-        "dimensions": { "height": 18, "width": 15, "depth": 8 },
-        "shippingCost": 5.99,
-        "averageRating": 4.7,
-        "reviews": [
-            {
-                "user": "JohnDoe123",
-                "rating": 5,
-                "comment": "Amazing sound quality! Worth every penny.",
-                "date": "2024-03-10"
-            },
-            {
-                "user": "JaneDoe99",
-                "rating": 4,
-                "comment": "Great product but a bit pricey.",
-                "date": "2024-03-08"
-            }
-        ],
-        "warranty": "1 Year Manufacturer Warranty",
-        "returnPolicy": "30-day returns with full refund",
-        "isFeatured": true,
-        "createdAt": "2024-03-01"
+    variants: [
+      {
+        sku: "P1V1",
+        firstImage: { url: "/assets/images/image2.jpg" },
+        price: { price: 189.99, currency: "EUR" },
+        stock: 30,
+        color: "White",
+        size: "One Size",
+      },
+      {
+        sku: "P1V2",
+        firstImage: { url: "/assets/images/image3.jpg" },
+        price: { price: 209.99, currency: "EUR" },
+        stock: 20,
+        color: "Blue",
+        size: "One Size",
+      },
+    ],
+    images: [{ url: "/assets/images/image1.jpg" }, { url: "/assets/images/image2.jpg" }, { url: "/assets/images/image3.jpg" }],
+    priceRange: { min: 189.99, max: 209.99, currency: "EUR" },
+    stockStatus: "In Stock",
+    sku: "P1",
+    weight: 0.5,
+    dimensions: { height: 18, width: 15, depth: 8 },
+    shippingCost: 5.99,
+    averageRating: 4.7,
+    reviews: [
+      {
+        user: "JohnDoe123",
+        rating: 5,
+        comment: "Amazing sound quality! Worth every penny.",
+        date: "2024-03-10",
+      },
+      {
+        user: "JaneDoe99",
+        rating: 4,
+        comment: "Great product but a bit pricey.",
+        date: "2024-03-08",
+      },
+    ],
+    warranty: "1 Year Manufacturer Warranty",
+    returnPolicy: "30-day returns with full refund",
+    isFeatured: true,
+    createdAt: "2024-03-01",
+  },
+  {
+    id: "5",
+    name: "Wireless Bluetooth",
+    path: "/wireless-bluetooth",
+    description: "High-quality wireless headphones with noise cancellation and deep bass.",
+    brand: "AudioTech",
+    category: "Electronics",
+    tags: ["wireless", "noise-canceling", "premium"],
+    Variant: {
+      sku: "P1-DEFAULT",
+      firstImage: { url: "/assets/images/image1.jpg" },
+      price: { price: 39.99, currency: "EUR" },
+      stock: 50,
+      color: "Black",
+      size: "One Size",
     },
-]
+    variants: [
+      {
+        sku: "P1V1",
+        firstImage: { url: "/assets/images/image2.jpg" },
+        price: { price: 189.99, currency: "EUR" },
+        stock: 30,
+        color: "White",
+        size: "One Size",
+      },
+      {
+        sku: "P1V2",
+        firstImage: { url: "/assets/images/image3.jpg" },
+        price: { price: 209.99, currency: "EUR" },
+        stock: 20,
+        color: "Blue",
+        size: "One Size",
+      },
+    ],
+    images: [{ url: "/assets/images/image1.jpg" }, { url: "/assets/images/image2.jpg" }, { url: "/assets/images/image3.jpg" }],
+    priceRange: { min: 189.99, max: 209.99, currency: "EUR" },
+    stockStatus: "In Stock",
+    sku: "P1",
+    weight: 0.5,
+    dimensions: { height: 18, width: 15, depth: 8 },
+    shippingCost: 5.99,
+    averageRating: 4.7,
+    reviews: [
+      {
+        user: "JohnDoe123",
+        rating: 5,
+        comment: "Amazing sound quality! Worth every penny.",
+        date: "2024-03-10",
+      },
+      {
+        user: "JaneDoe99",
+        rating: 4,
+        comment: "Great product but a bit pricey.",
+        date: "2024-03-08",
+      },
+    ],
+    warranty: "1 Year Manufacturer Warranty",
+    returnPolicy: "30-day returns with full refund",
+    isFeatured: true,
+    createdAt: "2024-03-01",
+  },
+];
 
 export const contactData = {
-    heading: "Get in Touch",
-    description:
-      "Have any questions or inquiries? Reach out and we'll get back to you as soon as possible.",
-    email: "support@example.com",
-    phone: "+1 234 567 890",
-    address: "123 Street, New York, NY, USA",
-    socialLinks: [
-      { platform: "Twitter", url: "https://twitter.com/example" },
-      { platform: "LinkedIn", url: "https://linkedin.com/company/example" },
-      { platform: "Instagram", url: "https://instagram.com/example" },
-    ],
-  };
-  export const cartData = [
-    {
-      id: "1",
-      name: "Apple iPhone 15 Pro",
-      price: 999.99,
-      quantity: 1,
-      image: "/assets/images/image1.jpg",
-    },
-    {
-      id: "2",
-      name: "Samsung Galaxy S23 Ultra",
-      price: 1199.99,
-      quantity: 1,
-      image: "/assets/images/image2.jpg",
-    },
-    {
-      id: "3",
-      name: "Sony WH-1000XM5 Headphones",
-      price: 399.99,
-      quantity: 2,
-      image: "/assets/images/image3.jpg",
-    },
-  ];
-  
+  heading: "Get in Touch",
+  description: "Have any questions or inquiries? Reach out and we'll get back to you as soon as possible.",
+  email: "support@example.com",
+  phone: "+1 234 567 890",
+  address: "123 Street, New York, NY, USA",
+  socialLinks: [
+    { platform: "Twitter", url: "https://twitter.com/example" },
+    { platform: "LinkedIn", url: "https://linkedin.com/company/example" },
+    { platform: "Instagram", url: "https://instagram.com/example" },
+  ],
+};
+export const cartData = [
+  {
+    id: "1",
+    name: "Apple iPhone 15 Pro",
+    price: 999.99,
+    quantity: 1,
+    image: "/assets/images/image1.jpg",
+  },
+  {
+    id: "2",
+    name: "Samsung Galaxy S23 Ultra",
+    price: 1199.99,
+    quantity: 1,
+    image: "/assets/images/image2.jpg",
+  },
+  {
+    id: "3",
+    name: "Sony WH-1000XM5 Headphones",
+    price: 399.99,
+    quantity: 2,
+    image: "/assets/images/image3.jpg",
+  },
+];

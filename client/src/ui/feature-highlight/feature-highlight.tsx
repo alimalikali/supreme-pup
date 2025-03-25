@@ -15,16 +15,14 @@ interface FeatureHighlightComponentProps {
 const FeatureItem = ({ headline, description, icon: Icon }: FeatureHighlightProps) => {
   return (
     <div className="flex items-start gap-2 sm:gap-6">
-      <div className="w-12 h-12 flex items-center justify-center bg-foreground text-white rounded-full p-2">
-        <Icon className="w-8 h-8" />
+      <div className="bg-foreground flex h-12 w-12 items-center justify-center rounded-full p-2 text-white">
+        <Icon className="h-8 w-8" />
       </div>
       <div className="w-11/12">
-        <Typography variant="h3" className="text-xl font-bold pb-2">
+        <Typography variant="h3" className="pb-2 text-xl font-bold">
           {headline}
         </Typography>
-        <Typography className="text-base sm:text-lg leading-7">
-          {description}
-        </Typography>
+        <Typography className="text-base leading-7 sm:text-lg">{description}</Typography>
       </div>
     </div>
   );
@@ -37,7 +35,7 @@ export const FeatureHighlight = ({ features = [] }: FeatureHighlightComponentPro
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 py-16 sm:py-24 gap-8">
+    <div className="mx-auto grid max-w-screen-2xl grid-cols-1 gap-8 py-16 sm:grid-cols-3 sm:py-24">
       {features.map((feature, index) => (
         <FeatureItem key={index} {...feature} />
       ))}

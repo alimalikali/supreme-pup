@@ -1,142 +1,87 @@
 "use client";
-import React, { useState } from "react";
+import { Button } from "@/components/button";
+import { decreaseQuantity, increaseQuantity, removeFromCart } from "@/lib/features/cart/cartSlice";
+import { RootState } from "@/lib/store";
+import { Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { cartData } from "@/constants/data"; // Example dataset
-import { Button } from "@/components/button";
-import { X } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
-    const [cart, setCart] = useState(cartData);
+  const dispatch = useDispatch();
 
-    // Update item quantity
-    const updateQuantity = (id: string, type: "increase" | "decrease") => {
-        setCart((prevCart) =>
-            prevCart.map((item) =>
-                item.id === id
-                    ? {
-                        ...item,
-                        quantity:
-                            type === "increase"
-                                ? item.quantity + 1
-                                : item.quantity > 1
-                                    ? item.quantity - 1
-                                    : 1,
-                    }
-                    : item
-            )
-        );
-    };
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  console.log(cartItems, "cartItems");
 
-    // Remove item from cart
-    const removeItem = (id: string) => {
-        setCart((prevCart) => prevCart.filter((item) => item.id !== id));
-    };
+  // Calculate subtotal
+  const subtotal = cartItems.reduce((acc: number, item: { price: number; quantity: number }) => acc + item.price * item.quantity, 0);
+  const tax = subtotal * 0.05;
+  const total = subtotal + tax;
 
-    // Calculate subtotal
-    const subtotal = cart.reduce(
-        (acc, item) => acc + item.price * item.quantity,
-        0
-    );
-    const tax = subtotal * 0.05;
-    const total = subtotal + tax;
+  return (
+    <section className="bg-background min-h-screen px-6 py-28">
+      <div className="mx-auto max-w-5xl">
+        <h2 className="text-accent text-center text-3xl font-bold">Shopping Cart</h2>
 
-    return (
-        <section className="min-h-screen bg-background py-10 px-6">
-            <div className="max-w-5xl mx-auto">
-                <h2 className="text-3xl font-bold text-center text-foreground">
-                    Shopping Cart
-                </h2>
-
-                {cart.length === 0 ? (
-                    <div className="text-center mt-10">
-                        <p className="text-lg text-gray-600 dark:text-gray-300">
-                            Your cart is empty 😢
-                        </p>
-                        <Link
-                            href="/shop"
-                            className="mt-4 inline-block px-6 py-3 bg-background text-white rounded-lg  transition"
-                        >
-                            Continue Shopping
-                        </Link>
+        {cartItems.length === 0 ? (
+          <div className="mt-10 text-center">
+            <p className="text-foreground text-lg">Your cart is empty 😢</p>
+            <Link href="/products" className="bg-accent text-background mt-4 inline-block rounded-lg px-6 py-3 transition">
+              Continue Shopping
+            </Link>
+          </div>
+        ) : (
+          <>
+            <div className="bg-accent mt-8 rounded-xl p-6 shadow-lg">
+              {cartItems.map((item: { id: string; image: string; name: string; price: number; quantity: number }) => (
+                <div key={item.id} className="flex items-center justify-between border-b border-gray-300 py-4 dark:border-gray-700">
+                  <div className="flex items-center gap-4">
+                    <Image src={item.image} alt={item.name} width={80} height={80} className="rounded-lg" />
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{item.name}</h3>
+                      <p className="text-gray-600 dark:text-gray-300">${item.price.toFixed(2)}</p>
                     </div>
-                ) : (
-                    <>
-                        <div className="mt-8 bg-accent p-6 rounded-xl shadow-lg">
-                            {cart.map((item) => (
-                                <div
-                                    key={item.id}
-                                    className="flex items-center justify-between py-4 border-b border-gray-300 dark:border-gray-700"
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <Image
-                                            src={item.image}
-                                            alt={item.name}
-                                            width={80}
-                                            height={80}
-                                            className="rounded-lg"
-                                        />
-                                        <div>
-                                            <h3 className="font-semibold text-lg text-gray-900 dark:text-white">
-                                                {item.name}
-                                            </h3>
-                                            <p className="text-gray-600 dark:text-gray-300">
-                                                ${item.price.toFixed(2)}
-                                            </p>
-                                        </div>
-                                    </div>
+                  </div>
 
-                                    <div className="flex items-center gap-4 text-white">
-                                        <button
-                                            onClick={() => updateQuantity(item.id, "decrease")}
-                                            className="px-3 py-1 bg-foreground rounded-lg"
-                                        >
-                                            -
-                                        </button>
-                                        <span className="text-lg">{item.quantity}</span>
-                                        <button
-                                            onClick={() => updateQuantity(item.id, "increase")}
-                                            className="px-3 py-1 bg-foreground rounded-lg "
-                                        >
-                                            +
-                                        </button>
-                                        <Button
-                                            onClick={() => removeItem(item.id)}
-                                            className=" bg-red-950 w-12 p-2.5 rounded-full"
-                                        >
-                                            <X/>
-                                        </Button>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* Checkout Section */}
-                        <div className="mt-8 p-6 bg-accent rounded-xl shadow-lg text-background">
-                            <div className="flex justify-between text-lg font-semibold">
-                                <p>Subtotal:</p>
-                                <p>${subtotal.toFixed(2)}</p>
-                            </div>
-                            <div className="flex justify-between text-lg font-semibold mt-2">
-                                <p>Tax (5%):</p>
-                                <p>${tax.toFixed(2)}</p>
-                            </div>
-                            <div className="flex justify-between text-xl font-bold mt-4">
-                                <p>Total:</p>
-                                <p>${total.toFixed(2)}</p>
-                            </div>
-                            <Button className="w-full mt-6 px-6 py-3 bg-foreground hover:bg-background/20  transition">
-
-                                <Link href="/checkout" >
-                                    Proceed to Checkout
-                                </Link>
-                            </Button>
-                        </div>
-                    </>
-                )}
+                  <div className="flex items-center gap-4 text-white">
+                    <button onClick={() => dispatch(decreaseQuantity(item.id))} className="bg-foreground rounded-lg px-3 py-1">
+                      -
+                    </button>
+                    <span className="text-lg">{item.quantity}</span>
+                    <button onClick={() => dispatch(increaseQuantity(item.id))} className="bg-foreground rounded-lg px-3 py-1">
+                      +
+                    </button>
+                    <div className="flex size-10 items-center justify-center rounded-full bg-white p-1">
+                      <Trash2 onClick={() => dispatch(removeFromCart(item.id))} className="text-black" />
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-        </section>
-    );
+
+            {/* Checkout Section */}
+            <div className="bg-accent text-background mt-8 rounded-xl p-6 shadow-lg">
+              <div className="flex justify-between text-lg font-semibold">
+                <p>Subtotal:</p>
+                <p>${subtotal.toFixed(2)}</p>
+              </div>
+              <div className="mt-2 flex justify-between text-lg font-semibold">
+                <p>Tax (5%):</p>
+                <p>${tax.toFixed(2)}</p>
+              </div>
+              <div className="mt-4 flex justify-between text-xl font-bold">
+                <p>Total:</p>
+                <p>${total.toFixed(2)}</p>
+              </div>
+              <Button className="bg-foreground hover:bg-background/20 mt-6 w-full px-6 py-3 transition">
+                <Link href="/checkout">Proceed to Checkout</Link>
+              </Button>
+            </div>
+          </>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default Cart;

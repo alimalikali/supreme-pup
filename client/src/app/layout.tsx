@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Manrope } from 'next/font/google';
+import { Manrope } from "next/font/google";
 import "./globals.css";
+import StoreProvider from "./StoreProvider";
+import Navbar from "@/components/navbar";
+import { webBlocksDataset } from "@/constants/data";
+import { Toaster } from "sonner";
 
-const manrope = Manrope({ subsets: ['latin'], display: 'swap' });
+const manrope = Manrope({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "Pup App",
@@ -16,10 +20,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${manrope.className} antialiased`}
-      >
-          <main className=" min-h-screen">{children}</main>
+      <body className={`${manrope.className} antialiased`}>
+        <StoreProvider>
+          <Navbar navigation={webBlocksDataset.navigationData} />
+          <main className="">
+            {children}
+            <Toaster />
+          </main>
+        </StoreProvider>
       </body>
     </html>
   );

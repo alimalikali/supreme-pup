@@ -8,24 +8,16 @@ const Checkout = () => {
   const prevStep = () => setStep((prev) => (prev > 1 ? prev - 1 : 1));
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-background px-6 py-10">
-      <div className="max-w-4xl w-full bg-foreground p-8 rounded-2xl shadow-2xl">
-        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-6">
-          Checkout
-        </h2>
+    <section className="bg-background flex min-h-screen items-center justify-center px-6 py-10">
+      <div className="bg-foreground w-full max-w-4xl rounded-2xl p-8 shadow-2xl">
+        <h2 className="mb-6 text-center text-3xl font-bold text-gray-900 dark:text-white">Checkout</h2>
 
         {/* Step Progress */}
-        <div className="flex justify-between mb-8">
+        <div className="mb-8 flex justify-between">
           {["Billing", "Shipping", "Payment"].map((label, index) => (
             <div key={index} className="flex flex-col items-center">
-              <div
-                className={`w-10 h-10 flex items-center justify-center rounded-full text-white font-bold ${
-                  step >= index + 1 ? "bg-accent" : "bg-gray-300"
-                }`}
-              >
-                {index + 1}
-              </div>
-              <p className="text-gray-700 dark:text-gray-300 mt-2">{label}</p>
+              <div className={`flex h-10 w-10 items-center justify-center rounded-full font-bold text-white ${step >= index + 1 ? "bg-accent" : "bg-gray-300"}`}>{index + 1}</div>
+              <p className="mt-2 text-gray-700 dark:text-gray-300">{label}</p>
             </div>
           ))}
         </div>
@@ -36,28 +28,18 @@ const Checkout = () => {
         {step === 3 && <PaymentForm />}
 
         {/* Navigation Buttons */}
-        <div className="flex justify-between mt-8">
+        <div className="mt-8 flex justify-between">
           {step > 1 && (
-            <button
-              onClick={prevStep}
-              className="px-6 py-3 bg-black text-white rounded-lg hover:bg-black/30 transition"
-            >
+            <button onClick={prevStep} className="rounded-lg bg-black px-6 py-3 text-white transition hover:bg-black/30">
               Back
             </button>
           )}
           {step < 3 ? (
-            <button
-              onClick={nextStep}
-              className="ml-auto px-6 py-3 bg-accent text-white rounded-lg hover:opacity-80 transition"
-            >
+            <button onClick={nextStep} className="bg-accent ml-auto rounded-lg px-6 py-3 text-white transition hover:opacity-80">
               Next
             </button>
           ) : (
-            <button
-              className="ml-auto px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
-            >
-              Place Order
-            </button>
+            <button className="ml-auto rounded-lg bg-green-600 px-6 py-3 text-white transition hover:bg-green-700">Place Order</button>
           )}
         </div>
       </div>
@@ -70,10 +52,8 @@ export default Checkout;
 /* Billing Form */
 const BillingForm = () => (
   <div>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-      Billing Information
-    </h3>
-    <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Billing Information</h3>
+    <form className="grid grid-cols-1 gap-4 md:grid-cols-2">
       <input type="text" placeholder="Full Name" className="input-field" />
       <input type="email" placeholder="Email Address" className="input-field" />
       <input type="text" placeholder="Phone Number" className="input-field" />
@@ -85,10 +65,8 @@ const BillingForm = () => (
 /* Shipping Form */
 const ShippingForm = () => (
   <div>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-      Shipping Address
-    </h3>
-    <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Shipping Address</h3>
+    <form className="grid grid-cols-1 gap-4 md:grid-cols-2">
       <input type="text" placeholder="Street Address" className="input-field col-span-2" />
       <input type="text" placeholder="City" className="input-field" />
       <input type="text" placeholder="State/Province" className="input-field" />
@@ -101,10 +79,8 @@ const ShippingForm = () => (
 /* Payment Form */
 const PaymentForm = () => (
   <div>
-    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
-      Payment Details
-    </h3>
-    <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">Payment Details</h3>
+    <form className="grid grid-cols-1 gap-4 md:grid-cols-2">
       <input type="text" placeholder="Cardholder Name" className="input-field col-span-2" />
       <input type="text" placeholder="Card Number" className="input-field col-span-2" />
       <input type="text" placeholder="Expiration Date (MM/YY)" className="input-field" />
@@ -114,4 +90,3 @@ const PaymentForm = () => (
 );
 
 /* Tailwind Input Field */
-

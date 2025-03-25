@@ -17,29 +17,21 @@ interface PictureGridProps {
   datasetGrid?: ImageDataset;
 }
 
-export const PictureGrid = ({
-    datasetGrid = { heading: "Your Ultimate Destination for Smart Shopping", description: "" ,imageGrid: [] },
-}: PictureGridProps) => {
+export const PictureGrid = ({ datasetGrid = { heading: "Your Ultimate Destination for Smart Shopping", description: "", imageGrid: [] } }: PictureGridProps) => {
   return (
-    <div className="flex flex-col items-center max-w-screen-2xl mx-auto gap-10">
-      <div className="flex flex-col justify-center items-center gap-5">
-        <Typography
-          variant="h1"
-          className="text-4xl md:text-5xl font-bold text-foreground max-w-3xl text-center"
-        >
+    <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-10">
+      <div className="flex flex-col items-center justify-center gap-5">
+        <Typography variant="h1" className="text-foreground max-w-3xl text-center text-4xl font-bold md:text-5xl">
           {datasetGrid.heading}
         </Typography>
 
-        <Typography
-          variant="p"
-          className="text-lg text-accent max-w-2xl text-center"
-        >
-         {datasetGrid.description}
+        <Typography variant="p" className="text-accent max-w-2xl text-center text-lg">
+          {datasetGrid.description}
         </Typography>
       </div>
 
       {!!datasetGrid.imageGrid?.length && (
-        <div className="grid gap-8 sm:grid-cols-7 auto-rows-[30vh] w-full h-auto pb-24">
+        <div className="grid h-auto w-full auto-rows-[30vh] gap-8 pb-24 sm:grid-cols-7">
           {datasetGrid.imageGrid.slice(0, 4).map((image, index) => (
             <div
               key={`picture-grid-image-${index}`}
@@ -49,12 +41,7 @@ export const PictureGrid = ({
                 "sm:col-span-2": index > 1,
               })}
             >
-              <CustomImage
-                {...image}
-                className="rounded-3xl overflow-hidden absolute inset-0 w-full h-full"
-                loading="lazy"
-                layout="fill"
-              />
+              <CustomImage {...image} className="absolute inset-0 h-full w-full overflow-hidden rounded-3xl" loading="lazy" layout="fill" />
             </div>
           ))}
         </div>
