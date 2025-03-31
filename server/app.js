@@ -36,11 +36,17 @@ connectToDB();
 // Security Middleware
 // app.use(cors({ origin: process.env.ORIGIN, credentials: true, exposedHeaders: ['X-Total-Count'], methods: ['GET', 'POST', 'PATCH', 'DELETE'] }));
 
-// Allow all origins
-app.use(cors({
-  origin: '*',
-  credentials: true,  // Allow credentials if necessary
-}));
+
+const corsOptions = {
+  origin: 'https://alidev-pup.vercel.app', // specify the allowed origin
+  credentials: true,  // Allow credentials (cookies, HTTP authentication)
+  exposedHeaders: ['X-Total-Count'], // if you want to expose custom headers
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'], // Specify allowed HTTP methods
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
 
 app.use(helmet()); // Secure HTTP headers
 app.use(mongoSanitize()); // Prevent NoSQL injection
@@ -79,6 +85,7 @@ app.use('*', (req, res, next) => {
 });
 
 app.use(globalErrorHandler);
+app.options('*', cors(corsOptions)); // Handle OPTIONS preflight requests
 
 module.exports = app;
 
