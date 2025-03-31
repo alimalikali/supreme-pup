@@ -62,6 +62,12 @@ app.use(compression()); // Compress responses
 // Routes setup
 setupRoutes(app);
 
+app.get('/test', (req, res) => {
+  res.send('Test route is working!');
+});
+
+
+
 app.use('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this app!`, 404));
 });
