@@ -10,6 +10,9 @@ const reviewRoutes = require('./routes/Review');
 // const wishlistRoutes = require("./routes/Wishlist");
 
 const setupRoutes = (app) => {
+  app.get('/', (req, res) => {
+    res.send('Test route works!');
+  });
   app.use('/api/auth', authRoutes);
   app.use('/api/users', userRoutes);
   app.use('/api/products', productRoutes);
