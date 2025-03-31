@@ -1,59 +1,47 @@
-export type Image = {
-  url: string;
-};
-
-export type Price = {
-  price: number;
-  currency: string;
-};
-
-type Dimensions = {
-  height: number;
-  width: number;
-  depth: number;
-};
-
-type Review = {
-  user: string;
-  rating: number;
-  comment: string;
-  date: string; // ISO date string
-};
-
-export type Variant = {
-  sku: string;
-  firstImage: { url: string };
-  price: Price;
-  stock: number;
-  color: string;
-  size: string;
-};
-
 export type Product = {
-  id: string;
-  name: string;
-  path: string;
+  _id: string;
+  title: string;
   description: string;
-  brand: string;
-  category: string;
-  tags: string[];
-  Variant: Variant;
-  variants: Variant[];
-  images: Image[];
-  priceRange: {
-    min: number;
-    max: number;
+  category: {
+    _id: string;
+    name: string;
+    __v: number;
+  };
+  brand: {
+    _id: string;
+    name: string;
+    __v: number;
+  };
+  price: {
+    discount: {
+      percentage: number;
+      expiry: string; // ISO Date String
+    };
+    original: number;
+    current: number;
     currency: string;
   };
-  stockStatus: string;
-  sku: string;
-  weight: number;
-  dimensions: Dimensions;
-  shippingCost: number;
-  averageRating: number;
-  reviews: Review[];
-  warranty: string;
-  returnPolicy: string;
-  isFeatured: boolean;
-  createdAt: string; // ISO date string
+  thumbnail: {
+    public_id: string;
+    url: string;
+  };
+  shipping: {
+    dimensions: {
+      width: string;
+      height: string;
+      depth: string;
+    };
+    weight: string;
+    availableRegions: string[];
+  };
+  stockQuantity: number;
+  images: {
+    public_id: string;
+    url: string;
+    _id: string;
+  }[];
+  isDeleted: boolean;
+  slug: string;
+  createdAt: string; // ISO Date String
+  updatedAt: string; // ISO Date String
 };

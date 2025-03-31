@@ -13,7 +13,7 @@ export const Button = ({ className, variant = "primary", size = "md", isLoading 
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center font-medium transition duration-200 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex items-center justify-center font-medium transition duration-200 focus:ring-0 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
         // Variants
         variant === "primary" ? "bg-black text-white hover:bg-gray-800 focus:ring-gray-600" : "",
         variant === "secondary" ? "bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500" : "",

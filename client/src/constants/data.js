@@ -347,14 +347,14 @@ export const webBlocksDataset = {
   },
   navigationData: {
     logo: {
-      text: "PUP Shop",
+      text: "PUP",
       href: "/",
     },
     menuItems: [
-      { name: "Products", href: "/products", hasDropdown: false },
-      { name: "FAQ", href: "faq" },
+      // { name: "Products", href: "/products", hasDropdown: false },
+      // { name: "FAQ", href: "faq" },
       // { name: "Shipping", href: "#" },
-      { name: "Contacts", href: "/contacts" },
+      // { name: "Contacts", href: "/contacts" },
     ],
     icons: {
       heart: {

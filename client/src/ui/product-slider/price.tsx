@@ -1,16 +1,19 @@
 type PriceProps = {
-  price?: { price: number; currency?: string } | null;
+  price?: { current: number; currency?: "USD" | "EUR" | "INR" } | null;
 };
 
 export const Price = ({ price }: PriceProps) => {
-  if (!price) {
-    return null;
-  }
+  if (!price) return null;
 
-  const formatter = new Intl.NumberFormat("en-US", {
+  // Default to USD if currency is not provided
+  const currency = price.currency || "USD";
+
+  const formatter = new Intl.NumberFormat(currency === "INR" ? "en-IN" : "en-US", {
     style: "currency",
-    currency: price?.currency || "EUR",
+    currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   });
 
-  return <>{formatter.format(price.price)}</>;
+  return <>{formatter.format(price.current)}</>;
 };

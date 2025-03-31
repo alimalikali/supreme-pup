@@ -1,17 +1,24 @@
-import { Product } from "./product";
+"use client";
+
 import Slider from "@/components/slider";
 import { Typography } from "@/components/typography";
+import { useGetProductsQuery } from "@/global/features/products/productAPI";
 import { Product as ProductPropType } from "@/types/products";
+import { Product } from "./product";
 
 interface ProductSliderProps {
   productsDataset: {
     heading: string;
     description: string;
-    products: ProductPropType[];
   };
 }
 
 export const ProductSlider = ({ productsDataset }: ProductSliderProps) => {
+  const { data: products, error, isLoading } = useGetProductsQuery();
+
+  if (isLoading) return null;
+  if (error) return null;
+
   return (
     <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-10 py-12">
       <div className="flex flex-col items-center justify-center gap-5">
@@ -24,27 +31,9 @@ export const ProductSlider = ({ productsDataset }: ProductSliderProps) => {
         </Typography>
       </div>
 
-      {!!productsDataset.products.length && (
+      {!!products.length && (
         <div className="w-full pb-24">
-          <Slider options={{ loop: true, align: "start" }}>
-            {productsDataset.products.map((item) =>
-              !!item ? (
-                <Product
-                  key={item.path}
-                  product={{
-                    id: item.id,
-                    name: item.name,
-                    path: item.path,
-                    variants: null,
-                    Variant: {
-                      firstImage: item.Variant.firstImage,
-                      price: item.Variant.price,
-                    },
-                  }}
-                />
-              ) : null,
-            )}
-          </Slider>
+          <Slider options={{ loop: true, align: "start" }}>{products.map((item: ProductPropType, index: number) => (!!item ? <Product key={index} product={item} /> : null))}</Slider>
         </div>
       )}
     </div>

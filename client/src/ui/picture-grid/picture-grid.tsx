@@ -19,7 +19,7 @@ interface PictureGridProps {
 
 export const PictureGrid = ({ datasetGrid = { heading: "Your Ultimate Destination for Smart Shopping", description: "", imageGrid: [] } }: PictureGridProps) => {
   return (
-    <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-10">
+    <div className="mx-auto flex max-w-screen-2xl flex-col items-center gap-10 py-24">
       <div className="flex flex-col items-center justify-center gap-5">
         <Typography variant="h1" className="text-foreground max-w-3xl text-center text-4xl font-bold md:text-5xl">
           {datasetGrid.heading}
@@ -31,7 +31,7 @@ export const PictureGrid = ({ datasetGrid = { heading: "Your Ultimate Destinatio
       </div>
 
       {!!datasetGrid.imageGrid?.length && (
-        <div className="grid h-auto w-full auto-rows-[30vh] gap-8 pb-24 sm:grid-cols-7">
+        <div className="grid h-auto w-full auto-rows-[30vh] gap-8 sm:grid-cols-7">
           {datasetGrid.imageGrid.slice(0, 4).map((image, index) => (
             <div
               key={`picture-grid-image-${index}`}

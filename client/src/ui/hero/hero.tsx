@@ -1,5 +1,6 @@
 "use client";
 
+import RippleButton from "@/components/RippleButton";
 import { Typography } from "@/components/typography";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,10 +32,11 @@ export const Hero = ({ banner = defaultBanner }: HeroProps) => {
           {banner.subtitle}
         </Typography>
 
-        <Link href="/products" className="bg-foreground mt-6 rounded-lg px-6 py-3 text-lg font-medium text-white transition hover:bg-gray-900">
-          Go to products
-        </Link>
-
+        <div className="flex flex-col items-center gap-4 p-10">
+          <Link href="/products">
+            <RippleButton className="bg-foreground hover:bg-foreground/50 px-5 py-3">Go to Products</RippleButton>
+          </Link>
+        </div>
         <div className="mt-10 w-full max-w-6xl">
           <Image src={banner.imageUrl} alt="Hero Image" width={1200} height={500} className="h-full rounded-3xl object-cover md:h-[400px]" priority />
         </div>

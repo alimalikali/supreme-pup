@@ -1,67 +1,66 @@
-const User = require("../models/User");
+const User = require('../models/User');
 const bcrypt = require('bcryptjs');
-const { sendMail } = require("../utils/Emails");
-const { generateOTP } = require("../utils/GenerateOtp");
-const Otp = require("../models/OTP");
-const { sanitizeUser } = require("../utils/SanitizeUser");
-const { generateToken } = require("../utils/GenerateToken");
-const PasswordResetToken = require("../models/PasswordResetToken");
-const CatchAsync = require("../utils/CatchAsync");
-const { setTokenCookie } = require("../utils/SetTokenCookie");
-
+const { sendMail } = require('../utils/Emails');
+const { generateOTP } = require('../utils/GenerateOtp');
+const Otp = require('../models/OTP');
+const { sanitizeUser } = require('../utils/SanitizeUser');
+const { generateToken } = require('../utils/GenerateToken');
+const PasswordResetToken = require('../models/PasswordResetToken');
+const CatchAsync = require('../utils/CatchAsync');
+const { setTokenCookie } = require('../utils/SetTokenCookie');
 
 exports.checkAuth = CatchAsync(async (req, res) => {
-    if (!req.user) {
-        return res.status(401).json({ message: "Unauthorized" });
-    }
-    const user = await User.findById(req.user._id);
-    if (!user) {
-        return res.status(404).json({ message: "User not found" });
-    }
-    res.status(200).json(user);
+  if (!req.user) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+  const user = await User.findById(req.user._id);
+  if (!user) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+  res.status(200).json(sanitizeUser(user));
 });
 
 exports.signup = CatchAsync(async (req, res) => {
-    const existingUser = await User.findOne({ email: req.body.email })
-    if (existingUser) {
-        return res.status(400).json({ "message": "User already exists" })
-    }
-    let hashedPassword;
-    try {
-        hashedPassword = await bcrypt.hash(req.body.password, 10);
-    } catch (err) {
-        return res.status(500).json({ message: "Error hashing password" });
-    }
-    const userData = { ...req.body, password: hashedPassword };
-    const createdUser = new User(userData);
-    await createdUser.save();
-    const secureInfo = sanitizeUser(createdUser)
-    const token = generateToken(secureInfo)
-    setTokenCookie(res, token);
-    res.status(201).json(secureInfo);
-})
+  const existingUser = await User.findOne({ email: req.body.email });
+  if (existingUser) {
+    return res.status(400).json({ message: 'User already exists' });
+  }
+  let hashedPassword;
+  try {
+    hashedPassword = await bcrypt.hash(req.body.password, 10);
+  } catch (err) {
+    return res.status(500).json({ message: 'Error hashing password' });
+  }
+  const userData = { ...req.body, password: hashedPassword };
+  const createdUser = new User(userData);
+  await createdUser.save();
+  const secureInfo = sanitizeUser(createdUser);
+  const token = generateToken(secureInfo);
+  setTokenCookie(res, token);
+  res.status(201).json(secureInfo);
+});
 
 exports.login = CatchAsync(async (req, res) => {
-    const existingUser = await User.findOne({ email: req.body.email });
-    if (!existingUser) {
-        res.clearCookie('token');
-        return res.status(401).json({ message: "Invalid Credentials" });
-    }
-    let isPasswordValid = false;
-    try {
-        isPasswordValid = await bcrypt.compare(req.body.password, existingUser.password);
-    } catch (err) {
-        return res.status(500).json({ message: "Error validating password" });
-    }
-    if (!isPasswordValid) {
-        res.clearCookie('token');
-        return res.status(401).json({ message: "Invalid Credentials" });
-    }
-    const secureInfo = sanitizeUser(existingUser)
-    const token = generateToken(secureInfo)
-    setTokenCookie(res, token);
-    return res.status(200).json(secureInfo);
-})
+  const existingUser = await User.findOne({ email: req.body.email });
+  if (!existingUser) {
+    res.clearCookie('token');
+    return res.status(401).json({ message: 'Invalid Credentials' });
+  }
+  let isPasswordValid = false;
+  try {
+    isPasswordValid = await bcrypt.compare(req.body.password, existingUser.password);
+  } catch (err) {
+    return res.status(500).json({ message: 'Error validating password' });
+  }
+  if (!isPasswordValid) {
+    res.clearCookie('token');
+    return res.status(401).json({ message: 'Invalid Credentials' });
+  }
+  const secureInfo = sanitizeUser(existingUser);
+  const token = generateToken(secureInfo);
+  setTokenCookie(res, token);
+  return res.status(200).json(secureInfo);
+});
 
 // exports.verifyOtp=async(req,res)=>{
 //     try {
@@ -96,7 +95,6 @@ exports.login = CatchAsync(async (req, res) => {
 
 //         // in default case if none of the conidtion matches, then return this response
 //         return res.status(400).json({message:'Otp is invalid or expired'})
-
 
 //     } catch (error) {
 //         console.log(error);
@@ -217,15 +215,13 @@ exports.login = CatchAsync(async (req, res) => {
 //     }
 // }
 
-
 exports.logout = CatchAsync(async (req, res) => {
-    res.cookie("token", "", {
-        maxAge: 0, // Expire immediately
-        sameSite: process.env.PRODUCTION === "true" ? "None" : "Lax",
-        httpOnly: true,
-        secure: process.env.PRODUCTION === 'true' ? true : false
-    });
+  res.cookie('token', '', {
+    maxAge: 0, // Expire immediately
+    sameSite: process.env.PRODUCTION === 'true' ? 'None' : 'Lax',
+    httpOnly: true,
+    secure: process.env.PRODUCTION === 'true' ? true : false,
+  });
 
-    res.status(200).json({ message: "Logout successful" });
+  res.status(200).json({ message: 'Logout successful' });
 });
-

@@ -1,7 +1,9 @@
 import Footer from "@/components/footer";
 import GlobalLayout from "@/components/global-layout";
 import { webBlocksDataset } from "@/constants/data";
+import FAQ from "@/ui/faq/faq";
 import { FeatureHighlight } from "@/ui/feature-highlight/feature-highlight";
+import FeedBack from "@/ui/feedback/feedback";
 import Hero from "@/ui/hero/hero";
 import Newsletter from "@/ui/news-letter/news-letter";
 import { PictureGrid } from "@/ui/picture-grid/picture-grid";
@@ -16,6 +18,8 @@ export default function Home() {
           <FeatureHighlight features={webBlocksDataset.featureData} />
           <ProductSlider productsDataset={webBlocksDataset.fakeProducts} />
           <PictureGrid datasetGrid={webBlocksDataset.imageDataset} />
+          <FAQ />
+          <FeedBack />
         </GlobalLayout>
         <Newsletter />
         <Footer />
